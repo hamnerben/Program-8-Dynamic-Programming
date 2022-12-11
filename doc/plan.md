@@ -43,12 +43,20 @@ that aint it
 
 ```java
 void printAll(int amt, String soFar, int currentSize){
-    if(amt <= 0) {
+    if(amt <= 0) {  // if found a finished combo
         print soFar
         exit recursion, 
         }
-    
-    
+    if(amt - currentSize < 0){
+        // impossible to finish combo with given currentSize
+        exit recursion without printing
+        }
+    // use it 
+    printAll(amt - currentSize, sofar + "currentsize", currentSize)
+        
+    // dont use it
+    printAll(amt, soFar, currentSize + 1)
+        
         }
 ```
 
